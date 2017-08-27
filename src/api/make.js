@@ -120,7 +120,7 @@ export default async (providedOptions = {}) => {
 
   info(interactive, 'Making for the following targets:', `${targets.join(', ')}`.cyan);
 
-  let targetArchs = declaredArch.split(',');
+  let targetArchs = [declaredArch];
   if (declaredArch === 'all') {
     switch (platform) {
       case 'darwin':
