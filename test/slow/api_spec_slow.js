@@ -236,7 +236,7 @@ describe(`electron-forge API (with installer=${installer.substr(12)})`, () => {
       badPlatforms.forEach(platform => badMakers.push(...getMakers(platform)));
 
       const testMakeTarget = function testMakeTarget(target, shouldPass, ...options) {
-        describe(`make (with target=${target})`, async () => {
+        describe(`make (with target=${target})`, () => {
           before(async () => {
             const packageJSON = await readPackageJSON(dir);
             packageJSON.config.forge.make_targets[process.platform] = [target];
@@ -271,7 +271,7 @@ describe(`electron-forge API (with installer=${installer.substr(12)})`, () => {
         testMakeTarget(maker, false, targetOptionFetcher);
       }
 
-      describe('make', async () => {
+      describe('make', () => {
         it('throws an error when given an unrecognized platform', async () => {
           await expect(forge.make({ dir, platform: 'dos' })).to.eventually.be.rejectedWith(/invalid platform/);
         });
