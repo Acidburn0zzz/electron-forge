@@ -174,7 +174,7 @@ describe(`electron-forge API (with installer=${installer.substr(12)})`, () => {
         );
         packageJSON.config.forge.windowsStoreConfig.devCert = await createDefaultCertificate(
           'CN=Test',
-          { certFilePath: dir, program: packageJSON.config.forge.windowsStoreConfig }
+          { certFilePath: dir }
         );
       }
       packageJSON.homepage = 'http://www.example.com/';
